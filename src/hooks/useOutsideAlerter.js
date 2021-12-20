@@ -1,18 +1,18 @@
-import { useEffect } from "react";
+import { useEffect } from 'react'
 
-export default function useOutsideAlerter({ wrapperRef, setActiveIcon }) {
+export default function useOutsideAlerter ({ wrapperRef, setActiveIcon }) {
   useEffect(() => {
-    function handleClickOutside(event) {
+    function handleClickOutside (event) {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-        setActiveIcon(false);
+        setActiveIcon(false)
       }
     }
 
     // Bind the event listener
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
       // Unbind the event listener on clean up
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [wrapperRef, setActiveIcon]);
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [wrapperRef, setActiveIcon])
 }

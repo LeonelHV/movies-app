@@ -1,4 +1,4 @@
-.header {
+.hero {
   position: relative;
   &--image {
     width: 100%;
@@ -19,7 +19,7 @@
       height: 100%;
     }
   }
-  .container-header {
+  .container-hero {
     display: flex;
     justify-content: space-between;
     height: 12rem;
@@ -204,7 +204,7 @@
   align-items: flex-start;
   justify-content: center;
   height: 100%;
-
+  padding-top: 7rem;
   & > * {
     color: #fff;
   }
@@ -212,6 +212,7 @@
   h1 {
     font-size: 5vw;
     font-weight: $bold;
+    margin-bottom: 0;
   }
   $font-size: 1.6rem;
   $line-height: 1.4;
@@ -220,13 +221,16 @@
     display: block;
     max-width: 50%;
     display: -webkit-box;
-    height: $font-size * $line-height * $lines;
+    max-height: $font-size * $line-height * $lines;
     font-size: $font-size;
     line-height: $line-height;
     -webkit-line-clamp: $lines;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    @include responsive(phone) {
+      font-size: 2.5vw;
+    }
   }
 }
 .container-buttons {
@@ -240,10 +244,16 @@
     border-radius: 0.5rem;
     border: none;
     column-gap: 1rem;
-
+    @include responsive(phone) {
+     font-size: 1.2rem;
+    }
     svg {
       width: 2rem;
       height: 2rem;
+      @include responsive(phone) {
+        width: 1rem;
+        height: 1rem;
+      }
     }
     &:hover {
       cursor: pointer;
@@ -253,7 +263,9 @@
     width: 10rem;
     background-color: #fff;
     color: #000;
-
+    @include responsive(phone) {
+      width: 6rem;
+    }
     &:hover {
       background-color: rgba(255, 255, 255, 0.75);
     }
@@ -263,6 +275,9 @@
 
     background-color: rgba(109, 109, 110, 0.7);
     color: #fff;
+    @include responsive(phone) {
+      width: 14rem;
+    }
     &:hover {
       background-color: rgba(109, 109, 110, 0.4);
     }

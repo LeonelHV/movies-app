@@ -1,27 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react'
 
-const height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+const height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
 
 export const useViewport = () => {
-  const [windowDimensions, setWindowDimensions] = useState({ height, width });
+  const [windowDimensions, setWindowDimensions] = useState({ height, width })
 
   const deriveWindowDimensions = () => {
-    const height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    const height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
 
-    const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth
 
-    setWindowDimensions({ height, width });
-  };
+    setWindowDimensions({ height, width })
+  }
 
   useEffect(() => {
-    deriveWindowDimensions();
-    window.addEventListener("resize", deriveWindowDimensions);
+    deriveWindowDimensions()
+    window.addEventListener('resize', deriveWindowDimensions)
 
     return () => {
-      window.removeEventListener("resize", deriveWindowDimensions);
-    };
-  }, []);
+      window.removeEventListener('resize', deriveWindowDimensions)
+    }
+  }, [])
 
-  return [windowDimensions];
-};
+  return [windowDimensions]
+}

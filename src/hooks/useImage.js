@@ -1,30 +1,30 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react'
 
 const useImage = fileName => {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [image, setImage] = useState(null);
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+  const [image, setImage] = useState(null)
 
   useEffect(() => {
     const fetchImage = async () => {
       try {
-        const response = await import(`../static/images/${fileName}`); // change relative path to suit your needs
-        setImage(response.default);
+        const response = await import(`../static/images/${fileName}`) // change relative path to suit your needs
+        setImage(response.default)
       } catch (err) {
-        setError(err);
+        setError(err)
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
-    };
+    }
 
-    fetchImage();
-  }, [fileName]);
+    fetchImage()
+  }, [fileName])
 
   return {
     loading,
     error,
-    image,
-  };
-};
+    image
+  }
+}
 
-export default useImage;
+export default useImage
