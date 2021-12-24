@@ -43,6 +43,8 @@ export default function MainSearch() {
             setMessage(false)
         });
 
+
+
     }, [page, keyword, setMaxOffSet, setMovies, setPage])
     return (<>
         <InfiniteScroll

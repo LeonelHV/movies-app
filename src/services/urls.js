@@ -17,8 +17,3 @@ export const urlMovie = {
 }
 
 
-const mediaType = {
-    tv: ["urlOriginalNetflix"],
-    movie: ["urlActionMovies", "urlComedyMovies", "urlHorrorMovies", "urlRomanceMovies", "urlDocumentaries", "urlTopRated"],
-    ambos: ["urlTrending", "urlTopRated"]
-}
