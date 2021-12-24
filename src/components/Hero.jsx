@@ -3,27 +3,35 @@ import React, { useEffect, useState, useContext } from 'react'
 import ReactPlayer from 'react-player'
 import InfoOverlay from './InfoOverlay'
 import MoviesContext from '../context/MoviesContext'
+
 import { videosVimeo } from '../services/getLinksVideo'
+import useNearScreen from '../hooks/useNearScreen'
 export default function Hero() {
   const [movieHero, setMovieHero] = useState('')
   const [endVideo, setEndVideo] = useState(false)
-  const { mute } = useContext(MoviesContext)
+  const { mute, play, setPlay } = useContext(MoviesContext)
 
-
+  const { isNearScreen, fromRef } = useNearScreen({
+    distance: '0px',
+    once: false
+  });
   useEffect(() => {
     if (movieHero === '') {
       const i = Math.floor(Math.random() * (videosVimeo.length))
       setMovieHero(videosVimeo[i])
     }
 
-  }, [movieHero, endVideo])
+    isNearScreen ? setPlay(true) : setPlay(false)
+  }, [movieHero, endVideo, isNearScreen, setPlay])
+
   return (
 
 
-    <div className='hero'>
+    <div className='hero' ref={fromRef}>
       {!endVideo
         ? <ReactPlayer
-          url={movieHero.url} playing
+          url={movieHero.url}
+          playing={play}
           width='100%'
           height='100%'
           volume={1}
@@ -37,7 +45,7 @@ export default function Hero() {
 
         <div className='container container-info-overlay'>
 
-          <InfoOverlay movieHero={movieHero} />
+          <InfoOverlay movieHero={movieHero} endVideo={endVideo} />
 
         </div>
       </div>

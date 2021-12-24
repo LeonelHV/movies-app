@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useContext } from 'react'
+import React, { useRef, useState, useContext } from 'react'
 import SearchIcon from '../static/images/search-icon.svg'
 import { ReactComponent as BellIcon } from '../static/images/bell-logo.svg'
 import { ReactComponent as ArrowIcon } from '../static/images/drop-down-arrow.svg'
@@ -13,7 +13,7 @@ const SecondaryNavigation = () => {
   const cssSearchicon = activeIcon ? 'input toggle' : 'input'
   useOutsideAlerter({ wrapperRef, setActiveIcon })
 
-  const { setKeyword } = useContext(MoviesContext)
+  const { setKeyword, setMovies } = useContext(MoviesContext)
   const onClickIcon = () => {
     if (activeIcon === false) {
       setActiveIcon(true)
@@ -22,6 +22,7 @@ const SecondaryNavigation = () => {
 
   const handleChange = (e) => {
     const term = e.target.value.replace(/ /g, '-').trim()
+    setMovies([])
     setKeyword(term)
   }
   const handleSubmit = (e) => {

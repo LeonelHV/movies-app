@@ -15,3 +15,10 @@ export const urlMovie = {
     urlRomanceMovies: `${BASE_URL_GENRES}=10749`,
     urlDocumentaries: `${BASE_URL_GENRES}=99`
 }
+
+
+const mediaType = {
+    tv: ["urlOriginalNetflix"],
+    movie: ["urlActionMovies", "urlComedyMovies", "urlHorrorMovies", "urlRomanceMovies", "urlDocumentaries", "urlTopRated"],
+    ambos: ["urlTrending", "urlTopRated"]
+}

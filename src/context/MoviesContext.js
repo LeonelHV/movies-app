@@ -7,9 +7,8 @@ export function MoviesContextProvider({ children }) {
   const [keyword, setKeyword] = useState('')
   const [mute, setMute] = useState(true)
   const [maxOffSet, setMaxOffSet] = useState(0);
-  const [page, setPage] = useState(1);
-
-
+  const [page, setPage] = useState(1)
+  const [play, setPlay] = useState(true);
   return <Context.Provider
     value={{
       movies,
@@ -22,6 +21,7 @@ export function MoviesContextProvider({ children }) {
       setKeyword,
       setMovies,
       setMaxOffSet,
+      play, setPlay
     }}
   >{children}</Context.Provider>
 }

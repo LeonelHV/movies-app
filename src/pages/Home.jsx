@@ -4,6 +4,7 @@ import Hero from '../components/Hero'
 import MainContent from '../components/MainContent'
 import MainSearch from '../components/MainSearch'
 import MoviesContext from '../context/MoviesContext'
+
 const Home = () => {
 
 

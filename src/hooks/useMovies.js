@@ -12,18 +12,18 @@ export default function useMovies({ visibleMovies }) {
   const [documentaries, setDocumentaries] = useState([])
   useEffect(() => {
 
-    getMovies({ type: 'urlOriginalNetflix' }).then(setNetflixOriginals)
+    getMovies({ type: 'urlOriginalNetflix', mediaType: "tv" }).then(setNetflixOriginals)
     getMovies({ type: 'urlTrending' }).then(setTrending)
-    getMovies({ type: 'urlTopRated' }).then(setTopRated)
-    getMovies({ type: 'urlActionMovies' }).then(setActionMovies)
+    getMovies({ type: 'urlTopRated', mediaType: "movie" }).then(setTopRated)
+    getMovies({ type: 'urlActionMovies', mediaType: "movie" }).then(setActionMovies)
 
   }, [])
   useEffect(() => {
     if (visibleMovies) {
-      getMovies({ type: 'urlComedyMovies' }).then(setcomedyMovies)
-      getMovies({ type: 'urlHorrorMovies' }).then(setHorrorMovies)
-      getMovies({ type: 'urlRomanceMovies' }).then(setRomanceMovies)
-      getMovies({ type: 'urlDocumentaries' }).then(setDocumentaries)
+      getMovies({ type: 'urlComedyMovies', mediaType: "movie" }).then(setcomedyMovies)
+      getMovies({ type: 'urlHorrorMovies', mediaType: "movie" }).then(setHorrorMovies)
+      getMovies({ type: 'urlRomanceMovies', mediaType: "movie" }).then(setRomanceMovies)
+      getMovies({ type: 'urlDocumentaries', mediaType: "movie" }).then(setDocumentaries)
     }
 
   }, [visibleMovies])
