@@ -1,0 +1,67 @@
+.no-scroll{
+   overflow-y: hidden; 
+}
+.modal{
+    position: fixed;
+    overflow:auto ;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 500;
+    background-color: rgba(0, 0, 0,.6);  
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    &-content{
+        position: relative;
+        max-width: 60rem;
+        margin: 10vh auto;
+        background-color: #181818;
+        border-radius: .8rem;
+        overflow:hidden ;
+    }
+    &__image{
+        position: relative;
+        width: 100%;
+        height: 34rem;
+
+        .icon-close{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 5rem;
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+  &__genreCompanies{
+      display: flex;
+      justify-content: space-between;
+
+      p{
+          font-weight: bold;
+          text-decoration: underline;
+      }
+  }
+ &__rating{
+   color: #5cdf5c;
+ }
+}
+
+ .modal__description{
+    color: #fff;
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    h2{
+    font-size: 2.5rem;
+    }
+    p{
+        font-size: 1.6rem;
+        color: rgb(233, 225, 225);
+    }
+ }  
+ 
