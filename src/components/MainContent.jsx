@@ -3,6 +3,7 @@ import SliderSwiper from './SliderSwiper'
 import useMovies from '../hooks/useMovies'
 import useNearScreen from '../hooks/useNearScreen'
 
+
 export default function MainContent() {
   const [visibleMovies, setVisibleMovies] = useState(false);
   const {
@@ -26,6 +27,7 @@ export default function MainContent() {
     }
   }, [isNearScreen])
   return (
+    <>
     <div className=' container movieShowcase'>
       <SliderSwiper movies={netflixOriginals} title='Netflix Originals' />
       <SliderSwiper movies={trending} title='Trending' />
@@ -40,5 +42,7 @@ export default function MainContent() {
       </>}
 
     </div>
+   
+    </>
   )
 }

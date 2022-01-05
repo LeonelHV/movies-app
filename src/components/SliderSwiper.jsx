@@ -9,7 +9,7 @@ import 'swiper/modules/pagination/pagination.scss' // Pagination module
 
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper'
-import { useViewport } from '../hooks/useViewport'
+
 import MovieDetails from './MovieDetails'
 import Modal from './Modal'
 import uniqid from 'uniqid';
@@ -17,8 +17,8 @@ import uniqid from 'uniqid';
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y])
 
 export default function SliderSwiper({ movies, title }) {
-  const [windowDimensions] = useViewport()
-  const { width } = windowDimensions
+  
+  
 
 
   const [toggleModal, setToggleModal] = useState(false);
@@ -49,27 +49,23 @@ export default function SliderSwiper({ movies, title }) {
           grabCursor={false}
           draggable={false}
           loop
-          loopAdditionalSlides={
-            width >= 1378 ? 4 : width >= 998 ? 3 : width >= 625 ? 2 : 2
-          }
-          breakpoints={{
-            1378: {
-              slidesPerView: 5,
-              slidesPerGroup: 5
-            },
-            998: {
-              slidesPerView: 4,
-              slidesPerGroup: 4
-            },
-            625: {
-              slidesPerView: 3,
-              slidesPerGroup: 3
-            },
-            0: {
+          breakpoints= {{
+            100: {
               slidesPerView: 2,
-              slidesPerGroup: 2
-            }
-          }}
+              spaceBetween: 10,
+            },
+            640: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 10,
+            },
+            1024: {
+              slidesPerView: 5,
+              spaceBetween: 10,
+            }}}
           preventClicksPropagation
           preventClicks
           scrollbar={{ draggable: false, hide: true }}
